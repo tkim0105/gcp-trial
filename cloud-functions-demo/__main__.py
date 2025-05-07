@@ -15,7 +15,7 @@ source_archive = storage.BucketObject(
 
 # Cloud Functionの作成
 function = cloudfunctions.Function(
-    "hello-function", # 関数名を明示的に設定
+    "hello-function",  # 関数名を明示的に設定
     name="hello-function",
     runtime="python39",
     source_archive_bucket=bucket.name,
@@ -30,8 +30,10 @@ invoker = cloudfunctions.FunctionIamMember(
     project=function.project,
     region=function.region,
     cloud_function=function.name,
-    role="roles/cloudfunctions.invoker",
-    member="allUsers",
+    role="roles/cloudfunctions.invoker",  # どんな権限を与えるか
+    member="user:t-kim@ssmarket.co.jp",
+    # member="domain:ssmarket.co.jp",
+    # member="allUsers",  # 誰に権限を与えるか
 )
 
 pulumi.export("function_url", function.https_trigger_url)
