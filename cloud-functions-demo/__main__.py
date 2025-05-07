@@ -23,6 +23,10 @@ function = cloudfunctions.Function(
     entry_point="hello_world",
     trigger_http=True,
     region="asia-northeast1",
+    environment_variables={
+        "BUCKET_NAME": bucket.name,
+        "FILE_NAME": "sample.txt",
+    },
 )
 
 invoker = cloudfunctions.FunctionIamMember(
@@ -36,4 +40,13 @@ invoker = cloudfunctions.FunctionIamMember(
     # member="allUsers",  # 誰に権限を与えるか
 )
 
+# バケットにテキストファイルをアップロード
+text_object = storage.BucketObject(
+    "sample-text",
+    bucket=bucket.name,
+    source=pulumi.FileAsset("sample.txt"),  # プロジェクト直下にsample.txtを用意
+    name="sample.txt",
+)
+
+# 関数のURLを出力
 pulumi.export("function_url", function.https_trigger_url)
