@@ -1,0 +1,6 @@
+name: cloud-functions-demo-js
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: JavaScript Cloud Functions Demo with Pulumi
