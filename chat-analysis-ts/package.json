@@ -1,0 +1,17 @@
+{
+  "name": "chat-analysis-ts",
+  "version": "1.0.0",
+  "description": "Google Chat message analysis system",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@pulumi/gcp": "^8.29.0",
+    "@pulumi/pulumi": "^3.168.0"
+  }
+}

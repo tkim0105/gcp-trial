@@ -1,0 +1,3 @@
+name: chat-analysis-ts
+runtime: nodejs
+description: Google Chat message analysis system
