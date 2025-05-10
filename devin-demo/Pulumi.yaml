@@ -1,0 +1,3 @@
+name: devin-demo
+runtime: python
+description: A simple Python Cloud Function demo created by Devin
