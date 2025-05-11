@@ -1,1 +1,1 @@
-Hello from GCP Cloud Storage! 
+Hello from GCP Cloud Storage!

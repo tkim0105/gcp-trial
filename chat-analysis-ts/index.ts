@@ -44,4 +44,4 @@ const invoker = new gcp.cloudfunctions.FunctionIamMember("function-invoker", {
 });
 
 // 関数のURLを出力
-export const functionUrl = cloudFunction.httpsTriggerUrl; 
+export const functionUrl = cloudFunction.httpsTriggerUrl;

@@ -3,7 +3,7 @@ const {Storage} = require('@google-cloud/storage');
 
 /**
  * GCSからファイルを読み取るHTTP Cloud Function
- * 
+ *
  * 環境変数:
  * - BUCKET_NAME: 読み取るファイルが格納されているバケット名
  * - FILE_NAME: 読み取るファイル名（デフォルト: sample.txt）
@@ -25,11 +25,11 @@ exports.helloWorld = async (req, res) => {
     const bucket = storage.bucket(bucketName);
     // 指定されたファイルを取得
     const file = bucket.file(fileName);
-    
+
     // ファイルの内容をダウンロード
     const [content] = await file.download();
     console.log(`File content: ${content.toString()}`);
-    
+
     // 成功レスポンスを返す
     res.status(200).send(content.toString());
   } catch (error) {
@@ -37,4 +37,4 @@ exports.helloWorld = async (req, res) => {
     console.error('Error:', error);
     res.status(500).send(error.message);
   }
-}; 
+};
