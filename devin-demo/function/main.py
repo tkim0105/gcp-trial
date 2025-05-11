@@ -1,31 +1,25 @@
-import logging
-import os
+"""Cloud Functions用のシンプルなHello Worldモジュール。"""
 
-from google.cloud import storage as gcs
+import logging
 
 logging.basicConfig(level=logging.INFO)
 
 
 def hello_world(request):
     """
-    Cloud Function that reads a file from Google Cloud Storage and returns its content.
-    
+    シンプルなHello Worldを返すCloud Functionです。
+
+    この関数は以下の処理を行います：
+    1. ログに挨拶メッセージを出力
+    2. 挨拶メッセージをレスポンスとして返却
+
     Args:
-        request: HTTP request object
-        
+        request: HTTPリクエストオブジェクト
+
     Returns:
-        The content of the file as a string
+        str: 挨拶メッセージを文字列として返却
     """
-    bucket_name = os.environ.get("BUCKET_NAME")
-    file_name = os.environ.get("FILE_NAME", "sample.txt")
+    message = "Hello, World!"
+    logging.info("Devin demo: %s", message)
 
-    logging.info("Devin demo: Start reading file: %s from bucket: %s", file_name, bucket_name)
-
-    client = gcs.Client()
-    bucket = client.bucket(bucket_name)
-    blob = bucket.blob(file_name)
-    content = blob.download_as_text()
-
-    logging.info("Devin demo: File content: %s", content)
-
-    return content
+    return message
