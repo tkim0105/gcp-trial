@@ -36,8 +36,7 @@ invoker = cloudfunctions.FunctionIamMember(
     cloud_function=function.name,
     role="roles/cloudfunctions.invoker",  # どんな権限を与えるか
     member="user:t-kim@ssmarket.co.jp",
-    # member="domain:ssmarket.co.jp",
-    # member="allUsers",  # 誰に権限を与えるか
+
 )
 
 # バケットにテキストファイルをアップロード
